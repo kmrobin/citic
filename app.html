@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+  a {
+  background-color: red;
+  color: white;
+  padding: 1em 1.5em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+  </style>
+  <title>Launch CITIC App</title>
+  <script>
+      (function (window) {
+
+          function getQueryStringValue(key) {
+              return decodeURIComponent(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + encodeURIComponent(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
+          }
+
+          var appName = getQueryStringValue("app");
+          var appPath = getQueryStringValue("path");
+
+          if (appName && appPath) {
+
+              var url = appName + "://" + appPath;
+              window.open(url, "_self");
+          }
+
+      })(window);
+  </script>
+</head>
+<body>
+Open the Citic App in your Phone !!<br/>
+<a href="cimotion://">Click to Launch App</a>
+<br/>
+</body>
+</html>
